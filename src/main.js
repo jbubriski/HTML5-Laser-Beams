@@ -12,18 +12,16 @@ window.requestAnimFrame = (function(callback){
 (function($) {
 	$(function() {
 		var $canvas = $('#uxCanvas');
-		var objectCount = 10;
-		var objects = [];
+		var objects = new Array(10);
 		var center = { x: 300, y: 300 };
 		
 		$canvas.on('click', function(e) {
-			objects[objectCount] = { x: e.offsetX, y: e.offsetY };
-			objectCount++;
+			objects[objects.length] = getNewDot(e.offsetX, e.offsetY);
 		});
 		
-		for (var i = 0; i < objectCount; i++)
+		for (var i = 0; i < objects.length; i++)
 		{
-			objects[i] = { x: Math.floor(Math.random() * 600), y: Math.floor(Math.random() * 600), xSpeed: Math.floor(Math.random() * 5), ySpeed: Math.floor(Math.random() * 5) };
+			objects[i] = getNewRandomDot($canvas[0].width, $canvas[0].height);
 		}
 		
 		draw(objects, center);
@@ -65,6 +63,17 @@ function draw(objects, center) {
 	requestAnimFrame(function(){
         draw(objects, center);
     });
+}
+
+function getNewDot(x, y) {
+	return { x: x, y: y, xSpeed: Math.floor(Math.random() * 4) + 1, ySpeed: Math.floor(Math.random() * 4) + 1 };
+}
+
+function getNewRandomDot(maxWidth, maxHeight) {
+	var x = Math.floor(Math.random() * maxWidth);
+	var y = Math.floor(Math.random() * maxHeight);
+	
+	return getNewDot(x, y)
 }
 
 function drawCircle(context, location, radius) {

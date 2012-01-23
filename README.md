@@ -1,4 +1,4 @@
-# HTML5 Canvas Drwaing Example
+# HTML5 Canvas Drawing Example
 
 This is a just a simple example project with some moving shapes and some lines that are dynmaically drawn.
 

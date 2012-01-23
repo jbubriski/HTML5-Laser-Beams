@@ -4,4 +4,4 @@ This is a just a simple example project with some moving shapes and some lines t
 
 ## Credit
 
-Some of the code, mainly the animation code, was taken from example on the [HTML5 Canvas Tutorials website](http://www.html5canvastutorials.com).
+Some of the code, mainly the requestAnimFrame animation code, was taken from example on the [HTML5 Canvas Tutorials website](http://www.html5canvastutorials.com).

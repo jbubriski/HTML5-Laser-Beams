@@ -23,7 +23,7 @@ window.requestAnimFrame = (function(callback){
 		
 		for (var i = 0; i < objectCount; i++)
 		{
-			objects[i] = { x: Math.floor(Math.random() * 600), y: Math.floor(Math.random() * 600) };
+			objects[i] = { x: Math.floor(Math.random() * 600), y: Math.floor(Math.random() * 600), xSpeed: Math.floor(Math.random() * 5), ySpeed: Math.floor(Math.random() * 5) };
 		}
 		
 		draw(objects, center);
@@ -48,8 +48,18 @@ function draw(objects, center) {
 			drawLine(context, center, object);
 		}
 		
-		objects[i].x += 1;
-		objects[i].y += 1;
+		objects[i].x += object.xSpeed;
+		objects[i].y += object.ySpeed;
+		
+		if(objects[i].x >= canvas.width || objects[i].x <= 0)
+		{
+			objects[i].xSpeed *= -1;
+		}
+		
+		if(objects[i].y >= canvas.height || objects[i].y <= 0)
+		{
+			objects[i].ySpeed *= -1;
+		}
 	}
 	
 	requestAnimFrame(function(){

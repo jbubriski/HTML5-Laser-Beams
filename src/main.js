@@ -1,6 +1,3 @@
-var objectCount = 10;
-var objects = [];
-		
 window.requestAnimFrame = (function(callback){
     return window.requestAnimationFrame ||
     window.webkitRequestAnimationFrame ||
@@ -15,6 +12,9 @@ window.requestAnimFrame = (function(callback){
 (function($) {
 	$(function() {
 		var $canvas = $('#uxCanvas');
+		var objectCount = 10;
+		var objects = [];
+		var center = { x: 300, y: 300 };
 		
 		$canvas.on('click', function(e) {
 			objects[objectCount] = { x: e.offsetX, y: e.offsetY };
@@ -26,14 +26,11 @@ window.requestAnimFrame = (function(callback){
 			objects[i] = { x: Math.floor(Math.random() * 600), y: Math.floor(Math.random() * 600) };
 		}
 		
-		draw(objects);
+		draw(objects, center);
 	});
 })(jQuery);
 
-var center = { x: 300, y: 300 };
-
-function draw(objects)
-{
+function draw(objects, center) {
 	var canvas = document.getElementById("uxCanvas");
 	var context = canvas.getContext("2d");
 	
@@ -56,12 +53,11 @@ function draw(objects)
 	}
 	
 	requestAnimFrame(function(){
-        draw(objects);
+        draw(objects, center);
     });
 }
 
-function drawCircle(context, location, radius)
-{
+function drawCircle(context, location, radius) {
 	context.beginPath();
     context.arc(location.x, location.y, radius, 0, 2 * Math.PI, false);
     context.fillStyle = "#8ED6FF";
@@ -71,16 +67,14 @@ function drawCircle(context, location, radius)
     context.stroke();
 }
 
-function drawLine(context, from, to)
-{
+function drawLine(context, from, to) {
     context.lineWidth = 1;
 	context.moveTo(from.x, from.y);
 	context.lineTo(to.x, to.y);
 	context.stroke();
 }
 
-function calculateDistance(from, to)
-{
+function calculateDistance(from, to) {
 	var xDistance = Math.abs(from.x - to.x);
 	var yDistance = Math.abs(from.y - to.y);
 	

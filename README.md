@@ -1,6 +1,10 @@
 # HTML5 Canvas Drawing Example
 
-This is a just a simple example project with some moving shapes and some lines that are dynmaically drawn.
+This is a just a simple example project with some moving shapes and some lines that are dynmaically drawn.  I called the lines laser beams, but they're more like tractor beams (that don't actually pull).
+
+## Demo
+
+[View the demo on the Github page](http://jbubriski.github.com/HTML5-Laser-Beams/)
 
 ## Credit
 

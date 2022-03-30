@@ -4,7 +4,7 @@ This is a just a simple example project with some moving shapes and some lines t
 
 ## Demo
 
-<a href="http://jbubriski.github.io/HTML5-Laser-Beams/src/index.htm" target=_blank">View the demo on the Github page</a>
+[View the demo on the Github page](http://jbubriski.github.io/HTML5-Laser-Beams/src/index.htm)
 
 ## Credit
 
